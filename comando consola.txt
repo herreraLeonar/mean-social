@@ -1,0 +1,53 @@
+desde raiz mean-social
+npm init
+asistente...
+name: mean-social
+version 1.0
+description: backend del proyecto del curso con angular y node
+entry point: (index.js) 
+test comand:git:keyword: authotr: leona
+licencia: "MIT"
+
+
+mkdir crear carpetas
+
+mv nombrearchivo.ext api/nombrearchivo.ext mover archivo
+
+librerias y paquetes a instalar para el proyecto
+
+en carpieta mean.social/api
+
+express es framework para trabajar con rutas peticiones http 
+permite trabajar con http de manera sencilla
+npm install express --save
+
+libreria para encryptar contraseña mucho mas seguras
+npm install bcrypt-nodejs --save
+
+libreria que permite comvertir los json en formato string a un 
+objeto de javascript funcional, se necesita un parceador el body
+a objetos utilizables
+npm install body-parser --save
+
+libreria para hacer subidas de ficheros
+npm install connect-multiparty --save
+
+libreria para jwt para token y cifrado y autenticacion
+npm install --save jwt-simple
+
+libreria de mongoose ORM para mongoDB que da metodos y funcionalidades
+para trabajar con la base de datos
+npm install mongoose --save
+
+libreria para trabajar con fechas y momentos
+npm install moment --save
+
+libreria para monitorear los cambios en el codigo y cambiarlo en la pagina
+el dev solo es para trabajar en local
+npm install --save-dev nodemon
+
+al finalizar para arrancar el backend que se esta haciendo se lanza el fichero principal
+node index.js
+
+iniciar el servidor con monitore nodemon
+npm start
