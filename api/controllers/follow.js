@@ -66,7 +66,7 @@ function getFollowingUsers(req,res){
     Follow.find({user:userId}).populate({path:'followed'}).paginate(page,itemsPerPage,(err,follows,total)=>{
         if(err) return res.status(500).send({message: 'error en servidor'});
         
-        if(!follows) return res.status(404).send({message:'no tiene follow'});
+        if(!follows) return res.status(404).send({message:'no esta siguiendo a ningun usuario'});
         
         return res.status(200).send({
             total:total,

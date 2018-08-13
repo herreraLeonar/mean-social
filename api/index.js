@@ -7,7 +7,7 @@ var port = 3800;
 
 //conexion a la DATABASE
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/mean_social')
+mongoose.connect('mongodb://localhost:27017/new-mean')
         .then(()=>{
             console.log("DB se conecto correctamente");
             //crear servidor
