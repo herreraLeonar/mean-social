@@ -5,6 +5,7 @@
 //modelo del usuarios
 var User = require('../models/user');
 var Follow = require('../models/follow');
+var Publication = require('../models/publication');
 //modulo de encriptacion
 var bcrypt = require("bcrypt-nodejs");
 //autenticacion basada en token servicio creado con datos de usuario
@@ -151,11 +152,9 @@ function getUser(req, res){
     });
 }
 
-//function asincrona, al usar async me permite usarla en otras partes dentro de otros metodos
+//function asincrona
 //al utilizar async devuelve una promesa, por lo cual tengo un metodo then cuando llame a la funciton
 async function followThisUser(identity_user_id, user_id){
-    //con await espero a que find devuelva follow que lo guarda en la variable, y de esa manera se puede convertir
-    //el resultado en una funcion asincrona como php
 
     var following = await Follow.findOne({"user":identity_user_id,"followed":user_id});
     
@@ -213,7 +212,7 @@ function getUsers(req,res){
 
 //funcion asincrona para
 
-async function followUserIds(user_id){//en select desativo los campos que no quiero que me lleguen
+async function followUserIds(user_id){//en select desactivo los campos que no quiero que me lleguen
     
     var following = await Follow.find({"user": user_id}).select({'_id':0,'__v':0,'user':0});
     
@@ -255,9 +254,12 @@ async function getCountFollow(user_id){
     var following= await Follow.count({'user':user_id});
     
     var followed = await Follow.count({'followed':user_id});
+
+    var publications = await Publication.count({'user':user_id});
     return {
         following: following,
-        followed: followed
+        followed: followed,
+        publications: publications
     }
 }
 

@@ -34,7 +34,6 @@ function savePublication(req,res){
     })
 }
 
-
 //obtener una publication por id
 function getPublication(req,res){
     var publicationId=req.params.id;
@@ -52,7 +51,7 @@ function getPublication(req,res){
 function deletePublication(req,res){
     var publicationId=req.params.id;
     //aqui compruebo que el usuario logueado es el usuario que creo la publicacion
-    Publication.find({user: req.user.sub,'_id':publicationId}).remove((err,publicationRemove)=>{
+    Publication.find({'user': req.user.sub,'_id':publicationId}).remove(err=>{
         if(err) if(err) return res.status(500).send({message: "retorno error"});
        // if(!publicationRemove) return res.status(404).send({message:"no se borro la publicacion"});
         return res.status(200).send({message: "publicacion eliminada exitosamente"});
@@ -76,7 +75,7 @@ function getPublications(req,res){
     
     //con el populate sustituyo el id del usuario por el objeto completo. Osea hago un join
     Follow.find({'user':req.user.sub}).populate('followed').exec((err,follows)=>{
-        if(err) return res.status(500).send({message:'erro al devolver el seguimiento'});
+        if(err) return res.status(500).send({message:'error al devolver el seguimiento'});
         
         var follows_clean=[];
         
