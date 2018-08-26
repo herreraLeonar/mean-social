@@ -7,5 +7,5 @@ declare var $: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Social Network';
 }

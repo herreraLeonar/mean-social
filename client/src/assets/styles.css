@@ -1,0 +1,8 @@
+.navigation{
+    margin: 0px;
+    padding: 0px !important;
+}
+.navigation .navbar{
+    border-radius: 0px !important;
+    border: none;
+}
